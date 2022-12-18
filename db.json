@@ -1,0 +1,30 @@
+{
+    "data" : {
+        "tickets" : [
+            {
+                "ticket_number" : "0000",
+                "user" : {
+                    "name" : "John Smith",
+                    "contact" : "918-111-1111",
+                    "state": "OK"
+                }
+            }
+        ],
+        "winners" : [
+            {
+                "prize" : "zero",
+                "winner" : {
+                    "name" : "Bob Smith",
+                    "contact" : "918-111-1111",
+                    "state" : "OK"
+                }
+            },
+            {
+                "prize" : "iPhone 14 Pro"
+            },
+            {
+                "prize" : "AirPods Gen 2"
+            }
+        ]
+    }
+}

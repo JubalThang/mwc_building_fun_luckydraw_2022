@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .label {
+    @apply block font-thin text-2xl py-3 uppercase
+  }
+  
+  .input {
+    @apply w-full outline-none p-2 font-bold text-2xl
+  }
+
+  .submit {
+    @apply py-2 px-4 w-full text-2xl bg-blue-400 text-white font-semibold rounded-lg cursor-pointer
+  }
+
+  .submit:hover {
+    @apply bg-white border border-blue-500 text-blue-500
+  }
+
+  .input-field {
+    @apply w-4/5 p-3 bg-white border-2 border-gray-400 rounded-md outline-none font-bold text-6xl text-center text-orange-900
+  }
+
+  .btn {
+    @apply px-4 py-2 bg-white font-bold text-2xl uppercase text-primary max-w-max rounded-md cursor-pointer
+  }
+
+  .prize-div {
+    @apply w-full h-full flex justify-center items-center rounded-md border-4 border-primary cursor-pointer z-20
+  }
+
+  .prize-div:hover {
+    @apply border-white
+  }
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+
+  /* 0%{opacity: 0;} */
+  50% {
+    opacity: .3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.text-rainbow-animation {
+  background-image:
+    linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-animation 50s linear infinite;
+}
+
+@keyframes rainbow-animation {
+  to {
+    background-position: 4500vh;
+  }
+}
+
+/* loading heart */
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: rgb(211, 52, 52);
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: rgb(211, 52, 52);
+}
+
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+
+  5% {
+    transform: scale(1.1);
+  }
+
+  39% {
+    transform: scale(0.85);
+  }
+
+  45% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
