@@ -8,7 +8,6 @@ export const Home = () => {
         <div className='flex h-screen overflow-hidden'>
             <MainPage />
             <Sidebar />
-
         </div>
     )
 }
