@@ -1,6 +1,8 @@
 import React from 'react'
+import { useLuckyContext } from '../Context/Context'
 
 export default function AddPage() {
+    const { postTicket } = useLuckyContext()
     function handleSubmit(e) {
         e.preventDefault()
         const ticket = {
@@ -12,17 +14,27 @@ export default function AddPage() {
                 state : e.target.state.value
             }
         }
-        console.log(ticket)
+        // const ticket =  {
+        //     "ticket_number": "1111",
+        //     "user": {
+        //         "name": "John Smith",
+        //         "contact": "918-111-1111",
+        //         "city": "Tulsa",
+        //         "state": "OK"
+        //     }
+        // }
 
+        console.log(ticket)
+        postTicket(ticket)
         e.target.reset()
     }
 
     return (
-        <div className="w-full h-full bg-gray-100 p-5">
+        <div className="w-full h-full bg-gray-100">
             <h1 className="text-center text-4xl p-5 font-semibold ">Enter ticket info</h1>
             <form className="w-96 mx-auto" onSubmit={(e) => handleSubmit(e)}>
                 <label htmlFor="ticket" className="label">Ticket No.</label>
-                <input type="number" maxlength={4} name="ticket" className="input" required />
+                <input type="number" name="ticket" className="input" required />
 
                 <label htmlFor="name" className="label">Name</label>
                 <input type="text" name="name" className="input" required />

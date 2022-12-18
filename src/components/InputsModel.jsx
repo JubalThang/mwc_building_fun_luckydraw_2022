@@ -26,7 +26,7 @@ export default function InputsModel({ winner, loading, dummyLoading, reload, set
                             <>
                                 <form onSubmit={(e) => dummyLoading(e)} className='w-full'>
                                     <div className="flex space-x-5 items-center justify-center mb-5">
-                                        <input type="number" className='input-field' maxLength={1}  name='first' onChange={(e) => setFirst(e.target.value)} />
+                                        <input type="number" className='input-field' name='first' onChange={(e) => setFirst(e.target.value)} />
                                         <input type="number" className='input-field' name='second' onChange={(e) => setSecond(e.target.value)} />
                                         <input type="number" className='input-field' name='third' onChange={(e) => setThird(e.target.value)} />
                                         <input type="number" className='input-field' name='fourth' onChange={(e) => setFourth(e.target.value)} />

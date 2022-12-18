@@ -37,7 +37,7 @@ export default function Sidebar() {
                     } */}
                     {
                         prizes.map((prize, index) =>
-                            <button key={prize} className={`bg-secondary mb-3 p-3 block w-full rounded-md hover:bg-secondary text-white hover:text-black ${selectedPrizes.includes(prize) && 'line-through text-gray-600 hover:text-gray-600'}`} onClick={() => handlePrizeSelect(prize)}
+                            <button key={prize} className={`bg-secondary mb-3 p-3 block w-full rounded-md hover:bg-secondary text-white hover:text-black ${selectedPrizes.includes(prize) && 'line-through text-gray-600 hover:text-gray-600 cursor-default'}`} onClick={() => handlePrizeSelect(prize)}
                                 // enabled={selectedPrizes.includes(prize) ? true : undefined } 
                             >
                                 <div className="flex">
