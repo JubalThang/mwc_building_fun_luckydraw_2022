@@ -23,7 +23,7 @@ export default function Sidebar() {
         }
     }
     return (
-        <div className={`${isShowingSidebar ? 'w-[25%]' : 'w-0'} bg-primary transition-all duration-200 flex flex-col justify-between`}>
+        <div className={`${isShowingSidebar ? 'w-[25%]' : 'w-0'} bg-primary transition-all duration-200 flex flex-col justify-between z-30 relative`}>
             <div>
                 <div className="flex items-center">
                     <h1 className="text-center text-[3rem] text-white font-semiBold py-5 flex-1">Prizes</h1>
@@ -50,6 +50,7 @@ export default function Sidebar() {
                     }
                 </div>
             </div>
+            <h1 className=' absolute p-5 text-white text-xs font-thin bottom-0 right-0 opacity-50'>Developed by Jubal Thang</h1>
         </div>
     )
 }

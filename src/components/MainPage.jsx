@@ -70,7 +70,6 @@ export const MainPage = () => {
                         selectedPrize && <div className=' mt-10 max-w-max mx-auto border-2 rounded-md border-black'> <h1 className='text-center p-3 text-4xl font-semibold'>Draw a Winner for <span className='text-5xl text-amber-700'> {selectedPrize}!</span></h1> </div>
                     }
                 </div>
-                <h1 className=' absolute p-5 text-white text-sm font-thin bottom-0 right-0'>Developed by Jubal Thang</h1>
             </div>
             <InputsModel isFireworksShoot={isFireworksShoot} winner={winner} loading={loading} onSubmitDraw={onSubmitDraw} reload={reload} setTicketToSearch={setTicketToSearch} />
         </div>

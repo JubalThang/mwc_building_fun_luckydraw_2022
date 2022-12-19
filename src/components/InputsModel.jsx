@@ -11,13 +11,13 @@ export default function InputsModel({ winner, loading, onSubmitDraw, reload, isF
     const { isShowingSidebar, selectedPrize } = useLuckyContext()
 
     useEffect(() => {
-        if (first !== '' && second !== '' && third !== '' && fourth !== '') {
+        if (first !== '' && second !== '' && third !== '' && fourth !== '' && selectedPrize !== '' ) {
             setbtnDisable(false)
         } else {
             setbtnDisable(true)
         }
         setTicketToSearch(first+second+third+fourth)
-    }, [first, second, third, fourth])
+    }, [first, second, third, fourth, selectedPrize])
 
     function handleOnSubmit(e) {
         selectedPrize ? onSubmitDraw(e) : alert('Choose the prize first!'); return
