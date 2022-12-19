@@ -1,12 +1,13 @@
-import { useState } from 'react'
+
 import { prizes } from '../../prizes'
 import { useLuckyContext } from '../Context/Context'
 
 export default function Sidebar() {
 
-    const { isShowingSidebar, selectedPrizes, setSelectedPrizes } = useLuckyContext()
+    const { isShowingSidebar, selectedPrizes, setSelectedPrizes, handleCurrentPrizeSelect } = useLuckyContext()
 
     const handlePrizeSelect = (selPrize) => {
+        handleCurrentPrizeSelect(selPrize)
         setSelectedPrizes([...selectedPrizes, selPrize])
     }
 

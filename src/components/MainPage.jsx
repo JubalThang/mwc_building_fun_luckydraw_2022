@@ -3,6 +3,7 @@ import InputsModel from './InputsModel'
 import hearBeat from '../assets/audio/heartbeat.mp3'
 import fireworkAudio from '../assets/audio/fireworks.mp3'
 import cheerAudio from '../assets/audio/cheer.mp3'
+import { useLuckyContext } from '../Context/Context'
 
 export const MainPage = () => {
     const [loading, setLoading] = useState(false)
@@ -13,10 +14,12 @@ export const MainPage = () => {
     const [third, setThird] = useState('')
     const [fourth, setFourth] = useState('')
     const [winner, setWinner] = useState('')
-    const [selected, setSelected] = useState([])
     const heartBeat = new Audio(hearBeat)
     const [fireworks] = useState(new Audio(fireworkAudio))
     const [cheering] = useState(new Audio(cheerAudio))
+    const [ticketToSearch, setTicketToSearch] = useState('')
+
+    const { selectedPrize, handleCurrentPrizeSelect, tickets } = useLuckyContext()
 
     function dummyLoading(e) {
         e.preventDefault()
@@ -31,19 +34,25 @@ export const MainPage = () => {
         } else {
             setbtnDisable(true)
         }
+        setTicketToSearch(first+second+third+fourth)
     }, [first, second, third, fourth])
+
+    function searchTheWinner(t) {
+        return t.ticket_number === ticketToSearch
+    }
 
     function myTimer() {
         // set the winner = {} if the winner ticket not found in Firebase!
-        let winner = {
-            'name': "Mg Aung Aung",
-            'state': "Oregon",
-            'number': 2224
-        }
-        setWinner(winner)
+        // let winner = {
+        //     'name': "Mg Aung Aung",
+        //     'state': "Oregon",
+        //     'number': 2224
+        // }
+        let winner = tickets.find(searchTheWinner) 
+        winner ? setWinner(winner) : setWinner({"user":""})
         setLoading(false)
         heartBeat.pause()
-        if (winner.name) {
+        if (winner) {
             fireworks.play()
             cheering.play()
             setisFireworksShoot(true)
@@ -62,11 +71,11 @@ export const MainPage = () => {
         setFourth('')
         setWinner('')
         setisFireworksShoot(false)
+        handleCurrentPrizeSelect('')
         fireworks.pause()
         fireworks.currentTime = 0
         cheering.pause()
         cheering.currentTime = 0
-        console.log('audio should pause')
     }
     return (
         <div className='w-full flex-1 h-full relative flex '>
@@ -75,6 +84,9 @@ export const MainPage = () => {
                 <div className="bg-gray-200 h-full">
                     <img src="" alt="" />
                     <h1 className='text-4xl font-bold py-5' onClick={() => console.log("click")}>MWC Building Fund 2022</h1>
+                    {
+                        selectedPrize && <div className=' mt-10 max-w-max mx-auto border-2 rounded-md border-black'> <h1 className='text-center p-3 text-4xl font-semibold'>Draw a Winner for <span className='text-5xl text-amber-700'> {selectedPrize}!</span></h1> </div>
+                    }
                 </div>
                 <h1 className=' absolute p-5 text-white text-sm font-thin bottom-0 right-0'>Developed by Jubal Thang</h1>
             </div>

@@ -9,14 +9,14 @@ export default function LuckyProvider({ children }) {
   const [tickets, setTickets] = useState([])
   const [isShowingSidebar, setIsShowingSidebar] = useState(false)
   const [selectedPrizes, setSelectedPrizes] = useState([])
+  const [selectedPrize, setSelectedPize] = useState('')
   // this selected ticket has to be override per select  
 
   useEffect(() => {
-    console.log('useEffect Tickets')
     fetch('http://localhost:3000/tickets')
       .then(res => {
         if (res.ok) {
-          res.json().then(data => {setTickets(data); console.log('tickets from db:',data)})
+          res.json().then(data => setTickets(data))
         }
       })
       .catch(error => console.log(error))
@@ -43,15 +43,20 @@ export default function LuckyProvider({ children }) {
     })
     .catch(error => console.error('Error post ticket: ', error))
   }
+  
+  function handleCurrentPrizeSelect(prize) {
+    setSelectedPize(prize)
+  }
 
   const value = {
     tickets,
-    setTickets,
     isShowingSidebar,
     setIsShowingSidebar,
     selectedPrizes,
     setSelectedPrizes,
-    postTicket
+    postTicket,
+    selectedPrize,
+    handleCurrentPrizeSelect
   }
   return (
     <LuckyContext.Provider value={value}>
