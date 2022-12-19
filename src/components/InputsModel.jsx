@@ -1,8 +1,10 @@
 import Fireworks from "@fireworks-js/react";
 import { useLuckyContext } from "../Context/Context";
+import { useState } from "react";
 
 export default function InputsModel({ winner, loading, dummyLoading, reload, setFirst, setSecond, setThird, setFourth, btnDisable, isFireworksShoot }) {
     const { isShowingSidebar } = useLuckyContext()
+
     return (
         <div className='absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center'>
             <div className={`${isShowingSidebar ? 'w-2/5' : 'w-1/4'} rounded-xl flex flex-col space-y-5 justify-evenly bg-primary p-5 z-20 transition-all duration-500 `}>

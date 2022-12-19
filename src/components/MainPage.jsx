@@ -3,6 +3,8 @@ import InputsModel from './InputsModel'
 import hearBeat from '../assets/audio/heartbeat.mp3'
 import fireworkAudio from '../assets/audio/fireworks.mp3'
 import cheerAudio from '../assets/audio/cheer.mp3'
+import noWinnerAudio from '../assets/audio/nowinner.mp3'
+
 import { useLuckyContext } from '../Context/Context'
 
 export const MainPage = () => {
@@ -17,9 +19,11 @@ export const MainPage = () => {
     const heartBeat = new Audio(hearBeat)
     const [fireworks] = useState(new Audio(fireworkAudio))
     const [cheering] = useState(new Audio(cheerAudio))
+    const [noWinner] = useState(new Audio(noWinnerAudio))
+    
     const [ticketToSearch, setTicketToSearch] = useState('')
 
-    const { selectedPrize, handleCurrentPrizeSelect, tickets } = useLuckyContext()
+    const { selectedPrize, handleCurrentPrizeSelect, tickets, selectedPrizes, setSelectedPrizes} = useLuckyContext()
 
     function dummyLoading(e) {
         e.preventDefault()
@@ -42,12 +46,6 @@ export const MainPage = () => {
     }
 
     function myTimer() {
-        // set the winner = {} if the winner ticket not found in Firebase!
-        // let winner = {
-        //     'name': "Mg Aung Aung",
-        //     'state': "Oregon",
-        //     'number': 2224
-        // }
         let winner = tickets.find(searchTheWinner) 
         winner ? setWinner(winner) : setWinner({"user":""})
         setLoading(false)
@@ -57,7 +55,9 @@ export const MainPage = () => {
             cheering.play()
             setisFireworksShoot(true)
         } else {
+            noWinner.play()
             setisFireworksShoot(false)
+            setSelectedPrizes(selectedPrizes.filter(p => p !== selectedPrize))
         }
         // setisFireworksShoot(true)
     }
@@ -76,6 +76,8 @@ export const MainPage = () => {
         fireworks.currentTime = 0
         cheering.pause()
         cheering.currentTime = 0
+        noWinner.pause()
+        noWinner.currentTime = 0
     }
     return (
         <div className='w-full flex-1 h-full relative flex '>
