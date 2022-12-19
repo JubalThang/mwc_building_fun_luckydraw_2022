@@ -85,25 +85,27 @@ export default function AddPage() {
     }
     return (
         <div className="w-full h-full bg-gray-100 overflow-y-auto">
-            <h1 className="text-center text-4xl p-5 font-semibold ">Enter ticket info</h1>
-            <form className="w-96 mx-auto" onSubmit={(e) => handleSubmit(e)}>
-                <label htmlFor="ticket" className="label">Ticket No.</label>
-                <input type="text" name="ticket" className="input" required />
+            <div className='mb-20'>
+                <h1 className="text-center text-4xl p-5 font-semibold ">Enter ticket info</h1>
+                <form className="w-96 mx-auto" onSubmit={(e) => handleSubmit(e)}>
+                    <label htmlFor="ticket" className="label">Ticket No. <br /><span className=' text-xs capitalize'>Use "," for multiple and "-" for range. <span> <br />  eg: 0343,3222 or 0222-0227</span> </span></label>
+                    <input type="text" name="ticket" className="input" required />
 
-                <label htmlFor="name" className="label">Name</label>
-                <input type="text" name="name" className="input" required />
+                    <label htmlFor="name" className="label">Name</label>
+                    <input type="text" name="name" className="input" required />
 
-                <label htmlFor="contact" className="label">Contact No.</label>
-                <input type="number" name="contact" className="input" />
+                    <label htmlFor="contact" className="label">Contact No.</label>
+                    <input type="number" name="contact" className="input" />
 
-                <label htmlFor="city" className="label">city</label>
-                <input type="text" name="city" className="input" required />
+                    <label htmlFor="city" className="label">city</label>
+                    <input type="text" name="city" className="input" required />
 
-                <label htmlFor="state" className="label">State</label>
-                <input type="text" name="state" onInput={(e) => e.target.value = e.target.value.slice(0, 2)} className="input uppercase" required />
+                    <label htmlFor="state" className="label">State</label>
+                    <input type="text" name="state" onInput={(e) => e.target.value = e.target.value.slice(0, 2)} className="input uppercase" required />
 
-                <input type="submit" className='submit mt-5 uppercase' pattern="/^[a-z]{2}$/" value="Add" />
-            </form>
+                    <input type="submit" className='submit mt-5 uppercase' pattern="/^[a-z]{2}$/" value="Add" />
+                </form>
+            </div>
         </div>
     )
 }
