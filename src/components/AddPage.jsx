@@ -13,7 +13,7 @@ export default function AddPage() {
 
             for (let i = parseInt(arrayCount[0]); i <= parseInt(arrayCount[1]); i++) {
                 let t_number = addZero(i)
-                
+
                 if (checkIfTheTicketIsThere(t_number)) {
                     alert('One of your input tickets is alreay there')
                     e.target.reset()
@@ -98,7 +98,7 @@ export default function AddPage() {
 
 
     return (
-        <div className="w-full h-full bg-gray-100 overflow-y-auto">
+        <div className="w-full h-full overflow-y-auto">
             <div className='mb-20'>
                 <h1 className="text-center text-4xl p-5 font-semibold ">Enter ticket info</h1>
                 <form className="w-96 mx-auto" onSubmit={(e) => handleSubmit(e)}>
