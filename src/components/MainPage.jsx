@@ -10,37 +10,22 @@ import { useLuckyContext } from '../Context/Context'
 export const MainPage = () => {
     const [loading, setLoading] = useState(false)
     const [isFireworksShoot, setisFireworksShoot] = useState(false)
-    const [btnDisable, setbtnDisable] = useState(true)
-    const [first, setFirst] = useState('')
-    const [second, setSecond] = useState('')
-    const [third, setThird] = useState('')
-    const [fourth, setFourth] = useState('')
     const [winner, setWinner] = useState('')
     const heartBeat = new Audio(hearBeat)
     const [fireworks] = useState(new Audio(fireworkAudio))
     const [cheering] = useState(new Audio(cheerAudio))
     const [noWinner] = useState(new Audio(noWinnerAudio))
-    
     const [ticketToSearch, setTicketToSearch] = useState('')
-
     const { selectedPrize, handleCurrentPrizeSelect, tickets, selectedPrizes, setSelectedPrizes} = useLuckyContext()
 
-    function dummyLoading(e) {
+    function onSubmitDraw(e) {
         e.preventDefault()
         setLoading(true)
         setTimeout(myTimer, 1000)
         heartBeat.play()
     }
 
-    useEffect(() => {
-        if (first !== '' && second !== '' && third !== '' && fourth !== '') {
-            setbtnDisable(false)
-        } else {
-            setbtnDisable(true)
-        }
-        setTicketToSearch(first+second+third+fourth)
-    }, [first, second, third, fourth])
-
+   
     function searchTheWinner(t) {
         return t.ticket_number.match(ticketToSearch)
     }
@@ -64,13 +49,7 @@ export const MainPage = () => {
     function reload() {
         // window.location.reload()
         setLoading(false)
-        setbtnDisable(true)
-        setFirst('')
-        setSecond('')
-        setThird('')
-        setFourth('')
         setWinner('')
-        setTicketToSearch('')
         setisFireworksShoot(false)
         handleCurrentPrizeSelect('')
         fireworks.pause()
@@ -93,7 +72,7 @@ export const MainPage = () => {
                 </div>
                 <h1 className=' absolute p-5 text-white text-sm font-thin bottom-0 right-0'>Developed by Jubal Thang</h1>
             </div>
-            <InputsModel isFireworksShoot={isFireworksShoot} winner={winner} loading={loading} dummyLoading={dummyLoading} reload={reload} setFirst={setFirst} setSecond={setSecond} setThird={setThird} setFourth={setFourth} btnDisable={btnDisable} />
+            <InputsModel isFireworksShoot={isFireworksShoot} winner={winner} loading={loading} onSubmitDraw={onSubmitDraw} reload={reload} setTicketToSearch={setTicketToSearch} />
         </div>
     )
 }

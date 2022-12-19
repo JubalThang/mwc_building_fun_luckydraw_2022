@@ -34,6 +34,9 @@
   .prize-div:hover {
     @apply border-white
   }
+  .table-row {
+    @apply h-8
+  }
 }
 
 .blink {
