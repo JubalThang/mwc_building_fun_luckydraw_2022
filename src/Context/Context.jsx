@@ -28,22 +28,25 @@ export default function LuckyProvider({ children }) {
   //   .then(tickets => )
   // }
 
-  async function postTicket(ticket) {
-    await fetch('http://localhost:3000/tickets', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(ticket)
+  function postTicket(tickets) {
+    tickets.map(ticket => {
+      fetch('http://localhost:3000/tickets', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(ticket)
+      })
+        .then(res => {
+          if (res.ok) {
+            res.json().then(ticket => setTickets([...tickets, ticket]))
+          }
+        })
+        .catch(error => console.error('Error post ticket: ', error))
     })
-    .then(res => {
-      if(res.ok) {
-        res.json().then(ticket => setTickets([...tickets, ticket]))
-      }
-    })
-    .catch(error => console.error('Error post ticket: ', error))
+    // console.log(tickets)
   }
-  
+
   function handleCurrentPrizeSelect(prize) {
     setSelectedPize(prize)
   }

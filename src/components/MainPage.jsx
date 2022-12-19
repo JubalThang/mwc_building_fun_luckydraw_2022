@@ -42,7 +42,7 @@ export const MainPage = () => {
     }, [first, second, third, fourth])
 
     function searchTheWinner(t) {
-        return t.ticket_number === ticketToSearch
+        return t.ticket_number.match(ticketToSearch)
     }
 
     function myTimer() {
@@ -70,6 +70,7 @@ export const MainPage = () => {
         setThird('')
         setFourth('')
         setWinner('')
+        setTicketToSearch('')
         setisFireworksShoot(false)
         handleCurrentPrizeSelect('')
         fireworks.pause()
