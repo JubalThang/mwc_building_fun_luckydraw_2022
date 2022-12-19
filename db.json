@@ -312,13 +312,5 @@
     }
   ],
   "winners": [
-    {
-      "prize": "zero",
-      "winner": {
-        "name": "Bob Smith",
-        "contact": "918-111-1111",
-        "state": "OK"
-      }
-    }
   ]
 }

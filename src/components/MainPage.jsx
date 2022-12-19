@@ -16,7 +16,7 @@ export const MainPage = () => {
     const [cheering] = useState(new Audio(cheerAudio))
     const [noWinner] = useState(new Audio(noWinnerAudio))
     const [ticketToSearch, setTicketToSearch] = useState('')
-    const { selectedPrize, handleCurrentPrizeSelect, tickets, selectedPrizes, setSelectedPrizes} = useLuckyContext()
+    const { selectedPrize, handleCurrentPrizeSelect, tickets, selectedPrizes, setSelectedPrizes, addTheWinner } = useLuckyContext()
 
     function onSubmitDraw(e) {
         e.preventDefault()
@@ -36,6 +36,7 @@ export const MainPage = () => {
         setLoading(false)
         heartBeat.pause()
         if (winner) {
+            addTheWinner(winner)
             fireworks.play()
             cheering.play()
             setisFireworksShoot(true)
