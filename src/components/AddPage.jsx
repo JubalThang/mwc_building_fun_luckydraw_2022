@@ -81,7 +81,7 @@ export default function AddPage() {
                 <input type="text" name="name" className="input" required />
 
                 <label htmlFor="contact" className="label">Contact No.</label>
-                <input type="number" name="contact" className="input" required />
+                <input type="number" name="contact" className="input" />
 
                 <label htmlFor="city" className="label">city</label>
                 <input type="text" name="city" className="input" required />
