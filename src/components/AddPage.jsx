@@ -12,8 +12,8 @@ export default function AddPage() {
             const arrayCount = e.target.ticket.value.split('-')
 
             for (let i = parseInt(arrayCount[0]); i <= parseInt(arrayCount[1]); i++) {
-                let t_number = ""
-                i < 1000 ? t_number = "0".concat(i.toString()) : i.toString()
+                let t_number = addZero(i)
+                
                 if (checkIfTheTicketIsThere(t_number)) {
                     alert('One of your input tickets is alreay there')
                     e.target.reset()
@@ -83,6 +83,20 @@ export default function AddPage() {
             return true
         }
     }
+
+    function addZero(num) {
+        if (num < 10) {
+            return "000".concat(num.toString())
+        } else if (num < 100) {
+            return "00".concat(num.toString())
+        } else if (num < 1000) {
+            return "0".concat(num.toString())
+        } else {
+            return num.toString()
+        }
+    }
+
+
     return (
         <div className="w-full h-full bg-gray-100 overflow-y-auto">
             <div className='mb-20'>

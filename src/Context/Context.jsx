@@ -51,6 +51,10 @@ export default function LuckyProvider({ children }) {
     setSelectedPize(prize)
   }
 
+  function addTheWinner(winner) {
+    console.log(winner)
+  }
+
   const value = {
     tickets,
     isShowingSidebar,
