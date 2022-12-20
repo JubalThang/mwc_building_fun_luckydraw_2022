@@ -6,9 +6,10 @@ export default function TicketList() {
   return (
     <div className=' max-h-full overflow-y-auto'>
       <div className=' mb-20 px-5'>
-        <table className=' min-w-full'>
-          <thead className=' border-b '>
+        <table className=' table-auto min-w-full'>
+          <thead className=' border-b'>
             <tr className=' h-10 py-5'>
+              <th>No.</th>
               <th>Ticket No.</th>
               <th>Name</th>
               <th>City</th>
@@ -17,10 +18,14 @@ export default function TicketList() {
           </thead>
           <tbody>
             {
-              tickets.map(ticket => (
-                <tr key={ticket.id} className=' even:bg-slate-100 text-left table-row'>
-                  <td>{ticket.ticket_number}</td>
-                  <td>{ticket.user.name}</td>
+              tickets.map((ticket, index) => (
+                <tr key={ticket.id} className=' even:bg-slate-100 even:bg-opacity-40 text-left table-row'>
+
+                  <td>{index + 1}.</td>
+                  <td>
+                    {ticket.ticket_number}
+                  </td>
+                  <td className='flex justify-start'> <p className=''>{ticket.user.name}</p></td>
                   <td>{ticket.user.city}</td>
                   <td>{ticket.user.state}</td>
                 </tr>
