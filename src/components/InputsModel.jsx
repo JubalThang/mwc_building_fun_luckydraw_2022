@@ -10,6 +10,7 @@ export default function InputsModel({ winner, loading, onSubmitDraw, reload, isF
     const [fourth, setFourth] = useState('')
     const { isShowingSidebar, selectedPrize } = useLuckyContext()
 
+    // console.log( 'winner from Input Model :' , winner)
     useEffect(() => {
         if (first !== '' && second !== '' && third !== '' && fourth !== '' && selectedPrize !== '' ) {
             setbtnDisable(false)

@@ -4,11 +4,17 @@ import { useLuckyContext } from '../Context/Context'
 
 export default function Sidebar() {
 
-    const { isShowingSidebar, selectedPrizes, setSelectedPrizes, handleCurrentPrizeSelect } = useLuckyContext()
+    const { isShowingSidebar, winners , handleCurrentPrizeSelect, setSelectedPize } = useLuckyContext()
 
     const handlePrizeSelect = (selPrize) => {
-        handleCurrentPrizeSelect(selPrize)
-        setSelectedPrizes([...selectedPrizes, selPrize])
+        setSelectedPize(selPrize)
+        // setSelectedPrizes([...selectedPrizes, selPrize])
+    }
+
+    console.log('winners form SideBar ', winners)
+
+    const checkIfThePrizeIsTaken = (prize) => {
+       return winners && winners.find(w => w.prize === prize) ? true : false 
     }
 
     const supper = (index) => {
@@ -29,18 +35,11 @@ export default function Sidebar() {
                     <h1 className="text-center text-[3rem] text-white font-semiBold py-5 flex-1">Prizes</h1>
                 </div>
                 <div className='p-3'>
-                    {/* {
-                        prizes.map(winner => (
-                            <div key={winner.prize} className='bg-secondary mb-3 p-3 rounded-md hover:bg-secondary cursor-pointer hover:text-white' onClick={() => handlePrizeSelect(winner.prize)}>
-                                <h1 className=' capitalize font-bold text-[1.5em]'>{winner.prize}</h1>
-                            </div>
-                        ))
-                    } */}
                     {
                         prizes.map((prize, index) =>
-                            <button key={prize} className={`bg-secondary mb-3 p-3 block w-full rounded-md hover:bg-secondary text-white hover:text-black ${selectedPrizes.includes(prize) && 'line-through text-gray-600 hover:text-gray-600 cursor-default'}`} onClick={() => handlePrizeSelect(prize)}
+                            <button key={prize} className={`bg-secondary mb-3 p-3 block w-full rounded-md hover:bg-secondary text-white hover:text-black ${checkIfThePrizeIsTaken(prize) && 'line-through text-gray-600 hover:text-gray-600 cursor-default'}`} onClick={() => handlePrizeSelect(prize)}
                                 // enabled={selectedPrizes.includes(prize) ? true : undefined } 
-                                disabled={selectedPrizes.includes(prize)}
+                                disabled={checkIfThePrizeIsTaken(prize)}
                             >
                                 <div className="flex">
                                     <h1 className=' font-bold text-left text-[1.5em] pr-3 '>{index + 1}<sup>{supper(index + 1)}</sup></h1>

@@ -4,7 +4,7 @@
       "id": "0000",
       "ticket_number": "0000",
       "user": {
-        "name": "John Smith",
+        "name": "Dummy User",
         "contact": "918-111-1111",
         "city": "Tulsa",
         "state": "OK"
@@ -3861,6 +3861,7 @@
       "id": "niVwbeL"
     }
   ],
-  "winners": [],
-  "prizes":[]
+  "winners": [
+
+  ]
 }

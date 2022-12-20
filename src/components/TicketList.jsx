@@ -12,6 +12,7 @@ export default function TicketList() {
               <th>No.</th>
               <th>Ticket No.</th>
               <th>Name</th>
+              <th>Contact</th>
               <th>City</th>
               <th>State</th>
             </tr>
@@ -26,6 +27,7 @@ export default function TicketList() {
                     {ticket.ticket_number}
                   </td>
                   <td className='flex justify-start'> <p className=''>{ticket.user.name}</p></td>
+                  <td>{ticket.user.contact}</td>
                   <td>{ticket.user.city}</td>
                   <td>{ticket.user.state}</td>
                 </tr>

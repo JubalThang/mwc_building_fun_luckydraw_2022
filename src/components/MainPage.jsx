@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+
 import InputsModel from './InputsModel'
 import hearBeat from '../assets/audio/heartbeat.mp3'
 import fireworkAudio from '../assets/audio/fireworks.mp3'
@@ -6,6 +6,7 @@ import cheerAudio from '../assets/audio/cheer.mp3'
 import noWinnerAudio from '../assets/audio/nowinner.mp3'
 import churchlogo from '../assets/images/churchlogo.png'
 import { useLuckyContext } from '../Context/Context'
+import { useState } from 'react'
 
 export const MainPage = () => {
     const [loading, setLoading] = useState(false)
@@ -16,34 +17,34 @@ export const MainPage = () => {
     const [cheering] = useState(new Audio(cheerAudio))
     const [noWinner] = useState(new Audio(noWinnerAudio))
     const [ticketToSearch, setTicketToSearch] = useState('')
-    const { selectedPrize, handleCurrentPrizeSelect, tickets, selectedPrizes, setSelectedPrizes, addTheWinner } = useLuckyContext()
+    const { selectedPrize, handleCurrentPrizeSelect, tickets, selectedPrizes, setSelectedPrizes, handleAddWinner } = useLuckyContext()
 
     function onSubmitDraw(e) {
         e.preventDefault()
         setLoading(true)
-        setTimeout(myTimer, 1000)
+        setTimeout(handleSearchingWinner, 1000)
         heartBeat.play()
     }
-
 
     function searchTheWinner(t) {
         return t.ticket_number.match(ticketToSearch)
     }
 
-    function myTimer() {
-        let winner = tickets.find(searchTheWinner)
-        winner ? setWinner(winner) : setWinner({ "user": "" })
+    function handleSearchingWinner() {
+        let prizeWinner = tickets.find(searchTheWinner)
+        prizeWinner ? setWinner(prizeWinner) : setWinner({ "user": "" })
         setLoading(false)
+        console.log("prize Winner form Main Page :", winner)
         heartBeat.pause()
-        if (winner) {
-            addTheWinner(winner)
+        if (prizeWinner) {
+            handleAddWinner(prizeWinner)
             fireworks.play()
             cheering.play()
             setisFireworksShoot(true)
         } else {
             noWinner.play()
             setisFireworksShoot(false)
-            setSelectedPrizes(selectedPrizes.filter(p => p !== selectedPrize))
+            // setSelectedPrizes(selectedPrizes.filter(p => p !== selectedPrize))
         }
         // setisFireworksShoot(true)
     }
