@@ -16,7 +16,6 @@ export default function AddPage() {
 
                 if (checkIfTheTicketIsThere(t_number)) {
                     alert('One of your input tickets is alreay there')
-                    e.target.reset()
                     return
                 } else {
 
@@ -38,11 +37,10 @@ export default function AddPage() {
             inputTicketCount.map(t => {
                 if (checkIfTheTicketIsThere(t.toString())) {
                     alert('One of your input tickets is alreay there')
-                    e.target.reset()
                     return
                 }
                 let ticket = {
-                    ticket_number: t.toString(),
+                    ticket_number: addZero(t),
                     user: {
                         name: e.target.name.value,
                         contact: e.target.contact.value,
@@ -55,11 +53,10 @@ export default function AddPage() {
         } else if (e.target.ticket.value.length === 4) {
             if (checkIfTheTicketIsThere(e.target.ticket.value.toString())) {
                 alert('One of your input tickets is alreay there')
-                e.target.reset()
                 return
             }
             let ticket = {
-                ticket_number: parseInt(e.target.ticket.value),
+                ticket_number: addZero(parseInt(e.target.ticket.value)),
                 user: {
                     name: e.target.name.value,
                     contact: e.target.contact.value,
