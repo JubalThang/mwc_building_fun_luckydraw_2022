@@ -39,6 +39,12 @@
   }
 }
 
+.church-bg {
+  background-image: url(./assets/images/churchbg.JPG);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 .blink {
   animation: blinker 1s linear infinite;
 }

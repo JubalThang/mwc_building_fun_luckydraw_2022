@@ -27,7 +27,7 @@ export default function LuckyProvider({ children }) {
     fetch('http://localhost:3000/winners')
       .then(res => {
         if (res.ok) {
-          res.json().then(winners => {setWinners(winners); console.log(winners)})
+          res.json().then(winners => setWinners(winners))
         }
       })
       .catch(error => console.log(error))

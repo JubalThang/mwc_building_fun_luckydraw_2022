@@ -1,17 +1,30 @@
 import { useLuckyContext } from "../Context/Context"
+import WinnerCard from "./WinnerCard"
 
 export default function WinnerList() {
   const { winners } = useLuckyContext()
-  console.log('winnerList: ', winners)
+  // console.log('winnerList: ', winners)
   return (
-   <>
-   {
-    winners.map(w => (
-      <div key={w.prize}>
-        <h1>{w.winner.name}</h1>
+    <div className=" h-screen overflow-y-auto ">
+      <div className="text-6xl space-y-5 pt-10 font-bold w-full text-center text-primary ">
+        <h1>Congratulations!</h1>
+        <h1 className="text-4xl">Luckydraw Winners</h1>
       </div>
-    ))
-   }
-   </>
+      {/* <div className=" grid grid-cols-3 gap-4 "> */}
+      <div className="w-full flex justify-center">
+        <div className="flex flex-wrap justify-center items-center w-[70%]">
+
+          {
+            winners ?
+              winners.map(w =>
+                <WinnerCard key={w.id} winner={w} />
+              )
+              :
+              <h1> No Winner yet!</h1>
+          }
+        </div>
+
+      </div>
+    </div>
   )
 }

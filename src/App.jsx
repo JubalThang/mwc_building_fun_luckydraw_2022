@@ -9,7 +9,7 @@ import WinnerList from './components/WinnerList'
 
 function App() {
   return (
-    <div className=' relative h-screen'>
+    <div className=' relative h-screen church-bg'>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
