@@ -17,7 +17,7 @@ export const MainPage = () => {
     const [cheering] = useState(new Audio(cheerAudio))
     const [noWinner] = useState(new Audio(noWinnerAudio))
     const [ticketToSearch, setTicketToSearch] = useState('')
-    const { selectedPrize, handleCurrentPrizeSelect, tickets, selectedPrizes, setSelectedPrizes, handleAddWinner } = useLuckyContext()
+    const { selectedPrize, handleCurrentPrizeSelect, tickets, handleAddWinner } = useLuckyContext()
 
     function onSubmitDraw(e) {
         e.preventDefault()
@@ -34,7 +34,7 @@ export const MainPage = () => {
         let prizeWinner = tickets.find(searchTheWinner)
         prizeWinner ? setWinner(prizeWinner) : setWinner({ "user": "" })
         setLoading(false)
-        console.log("prize Winner form Main Page :", winner)
+        // console.log("prize Winner form Main Page :", winner)
         heartBeat.pause()
         if (prizeWinner) {
             handleAddWinner(prizeWinner)
@@ -44,9 +44,7 @@ export const MainPage = () => {
         } else {
             noWinner.play()
             setisFireworksShoot(false)
-            // setSelectedPrizes(selectedPrizes.filter(p => p !== selectedPrize))
         }
-        // setisFireworksShoot(true)
     }
     function reload() {
         // window.location.reload()
@@ -63,8 +61,6 @@ export const MainPage = () => {
     }
     return (
         <div className='w-full flex-1 h-full relative flex'>
-            {/* <div className="flex flex-col justify-evenly h-full -z-10"> */}
-
             <div className="p-5 w-full">
                 <div className="flex flex-col">
                     <img src={churchlogo} alt="logo" className='w-32 h-auto' />

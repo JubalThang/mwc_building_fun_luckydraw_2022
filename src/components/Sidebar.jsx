@@ -4,14 +4,11 @@ import { useLuckyContext } from '../Context/Context'
 
 export default function Sidebar() {
 
-    const { isShowingSidebar, winners , handleCurrentPrizeSelect, setSelectedPize } = useLuckyContext()
+    const { isShowingSidebar, winners, setSelectedPize } = useLuckyContext()
 
     const handlePrizeSelect = (selPrize) => {
         setSelectedPize(selPrize)
-        // setSelectedPrizes([...selectedPrizes, selPrize])
     }
-
-    console.log('winners form SideBar ', winners)
 
     const checkIfThePrizeIsTaken = (prize) => {
        return winners && winners.find(w => w.prize === prize) ? true : false 
@@ -38,7 +35,6 @@ export default function Sidebar() {
                     {
                         prizes.map((prize, index) =>
                             <button key={prize} className={`bg-secondary mb-3 p-3 block w-full rounded-md hover:bg-secondary text-white hover:text-black ${checkIfThePrizeIsTaken(prize) && 'line-through text-gray-600 hover:text-gray-600 cursor-default'}`} onClick={() => handlePrizeSelect(prize)}
-                                // enabled={selectedPrizes.includes(prize) ? true : undefined } 
                                 disabled={checkIfThePrizeIsTaken(prize)}
                             >
                                 <div className="flex">
