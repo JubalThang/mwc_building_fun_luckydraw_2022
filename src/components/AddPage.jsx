@@ -1,4 +1,4 @@
-import { useLuckyContext } from '../Context/Context'
+import { useLuckyContext } from '../Context'
 
 export default function AddPage() {
     const { postTicket, tickets } = useLuckyContext()

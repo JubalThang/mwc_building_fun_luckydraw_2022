@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import { DummyPage } from './components/DummyPage'
-import LuckyProvider from './Context/Context'
+import LuckyProvider from './Context'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

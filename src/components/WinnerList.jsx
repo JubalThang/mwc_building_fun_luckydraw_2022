@@ -1,4 +1,4 @@
-import { useLuckyContext } from "../Context/Context"
+import { useLuckyContext } from "../Context"
 import WinnerCard from "./WinnerCard"
 
 export default function WinnerList() {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useLuckyContext } from '../Context/Context'
+import { useLuckyContext } from '../Context'
 
 export default function Navbar() {
   const { isShowingSidebar, setIsShowingSidebar } = useLuckyContext()

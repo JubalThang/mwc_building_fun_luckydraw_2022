@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLuckyContext } from '../Context/Context'
+import { useLuckyContext } from '../Context'
 
 export default function TicketList() {
   const { tickets } = useLuckyContext()

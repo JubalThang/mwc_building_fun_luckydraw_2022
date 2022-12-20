@@ -1,6 +1,6 @@
 import Fireworks from "@fireworks-js/react";
 import { useEffect, useState } from "react";
-import { useLuckyContext } from "../Context/Context";
+import { useLuckyContext } from "../Context";
 
 export default function InputsModel({ winner, loading, onSubmitDraw, reload, isFireworksShoot, setTicketToSearch }) {
     const [btnDisable, setbtnDisable] = useState(true)

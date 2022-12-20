@@ -5,7 +5,7 @@ import fireworkAudio from '../assets/audio/fireworks.mp3'
 import cheerAudio from '../assets/audio/cheer.mp3'
 import noWinnerAudio from '../assets/audio/nowinner.mp3'
 import churchlogo from '../assets/images/churchlogo.png'
-import { useLuckyContext } from '../Context/Context'
+import { useLuckyContext } from '../Context'
 import { useState } from 'react'
 
 export const MainPage = () => {

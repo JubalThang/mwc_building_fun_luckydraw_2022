@@ -1,6 +1,6 @@
 
-import { useLuckyContext } from '../Context/Context'
-import prizes from '../prizes'
+import { useLuckyContext } from '../Context'
+import { prizes } from '../prizes'
 
 export default function Sidebar() {
 
