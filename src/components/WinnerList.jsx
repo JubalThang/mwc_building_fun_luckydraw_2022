@@ -7,7 +7,7 @@ export default function WinnerList() {
   return (
     <div className=" h-screen overflow-y-auto ">
       <div className="text-6xl space-y-5 pt-10 font-bold w-full text-center text-primary ">
-        <h1>Congratulations!</h1>
+        <h1 className=" bg-white py-5 uppercase drop-shadow-md">Congratulations!</h1>
         <h1 className="text-4xl">Luckydraw Winners</h1>
       </div>
       {/* <div className=" grid grid-cols-3 gap-4 "> */}

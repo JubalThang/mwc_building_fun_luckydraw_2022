@@ -63,8 +63,8 @@ export const MainPage = () => {
         <div className='w-full flex-1 h-full relative flex'>
             <div className="p-5 w-full">
                 <div className="flex flex-col">
-                    <img src={churchlogo} alt="logo" className='w-32 h-auto' />
-                    <h1 className='text-4xl font-bold text-primary -mt-9 ml-6' onClick={() => console.log("click")}>MWC Building Fund 2022</h1>
+                    <img src={churchlogo} alt="logo" className='w-32 h-auto drop-shadow-lg' />
+                    <h1 className='text-4xl font-bold text-primary -mt-9 ml-6 drop-shadow-md' onClick={() => console.log("click")}>MWC Building Fund 2022</h1>
                 </div>
                 {
                     selectedPrize && <div className=' mt-10 max-w-max mx-auto border-2 rounded-md border-primary'> <h1 className='text-center text-primary p-3 text-4xl font-semibold'>Draw a Winner for <span className='text-5xl text-amber-700'> {selectedPrize}!</span></h1> </div>
