@@ -1,8 +1,14 @@
+import { useEffect } from "react"
 import { useLuckyContext } from "../Context"
 import WinnerCard from "./WinnerCard"
 
 export default function WinnerList() {
-  const { winners } = useLuckyContext()
+  const { winners, handlePrizesBtnDisplay } = useLuckyContext()
+
+  useEffect(() => {
+    handlePrizesBtnDisplay(false)
+  },[])
+
   return (
     <div className=" h-screen overflow-y-auto ">
       <div className="text-6xl space-y-5 pt-10 font-bold w-full text-center text-primary ">

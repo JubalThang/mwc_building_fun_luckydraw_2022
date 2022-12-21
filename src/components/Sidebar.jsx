@@ -4,14 +4,14 @@ import { prizes } from '../prizes'
 
 export default function Sidebar() {
 
-    const { isShowingSidebar, winners, setSelectedPize } = useLuckyContext()
+    const { isShowingSidebar, winners, setSelectedPize, setIsShowingSidebar } = useLuckyContext()
 
     const handlePrizeSelect = (selPrize) => {
         setSelectedPize(selPrize)
     }
 
     const checkIfThePrizeIsTaken = (prize) => {
-       return winners && winners.find(w => w.prize === prize) ? true : false 
+        return winners && winners.find(w => w.prize === prize) ? true : false
     }
 
     const supper = (index) => {
@@ -45,7 +45,14 @@ export default function Sidebar() {
                     }
                 </div>
             </div>
-            <h1 className={`${ isShowingSidebar ? 'block' : 'hidden' } absolute p-5 text-white text-xs font-thin bottom-0 right-0 opacity-50`}>developed by Jubal Thang</h1>
+            <div className={`${isShowingSidebar ? 'block' : 'hidden'} `}>
+                <div className='p-3 w-16 h-auto cursor-pointer' onClick={() => setIsShowingSidebar(false)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-ful text-white">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                    </svg>
+                </div>
+                <h1 className={`absolute p-5 text-white text-xs font-thin bottom-0 right-0 opacity-50`}>developed by Jubal Thang</h1>
+            </div>
         </div>
     )
 }

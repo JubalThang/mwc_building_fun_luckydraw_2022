@@ -12,7 +12,7 @@
   }
 
   .submit {
-    @apply py-2 px-4 w-full text-2xl bg-blue-400 text-white font-semibold rounded-lg cursor-pointer
+    @apply py-3 px-4 w-full text-2xl bg-primary text-white font-semibold rounded-lg cursor-pointer
   }
 
   .submit:hover {
@@ -36,6 +36,9 @@
   }
   .table-row {
     @apply h-8
+  }
+  .nav-btn {
+    @apply text-secondary
   }
 }
 

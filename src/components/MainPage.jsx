@@ -6,7 +6,7 @@ import cheerAudio from '../assets/audio/cheer.mp3'
 import noWinnerAudio from '../assets/audio/nowinner.mp3'
 import churchlogo from '../assets/images/churchlogo.png'
 import { useLuckyContext } from '../Context'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const MainPage = () => {
     const [loading, setLoading] = useState(false)
@@ -17,8 +17,12 @@ export const MainPage = () => {
     const [cheering] = useState(new Audio(cheerAudio))
     const [noWinner] = useState(new Audio(noWinnerAudio))
     const [ticketToSearch, setTicketToSearch] = useState('')
-    const { selectedPrize, handleCurrentPrizeSelect, tickets, handleAddWinner } = useLuckyContext()
+    const { selectedPrize, handlePrizesBtnDisplay, tickets, handleAddWinner } = useLuckyContext()
 
+    useEffect(() => {
+        handlePrizesBtnDisplay(true)
+    },[])
+    
     function onSubmitDraw(e) {
         e.preventDefault()
         setLoading(true)

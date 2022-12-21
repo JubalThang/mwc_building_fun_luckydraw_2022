@@ -11,7 +11,7 @@ export default function LuckyProvider({ children }) {
   const [isShowingSidebar, setIsShowingSidebar] = useState(false)
   const [selectedPrize, setSelectedPize] = useState('')
   const [winners, setWinners] = useState(null)
-  // this selected ticket has to be override per select  
+  const [isPrizeBtnDisplay, setisPrizeBtnDisplay] = useState(false)
 
   useEffect(() => {
     getTheTicketsFromDB().then(tickets => setTickets(tickets))
@@ -29,15 +29,21 @@ export default function LuckyProvider({ children }) {
     postWinnerToDB(w).then(winner_res =>  setWinners([...winners, winner_res]))
   }
 
+  function handlePrizesBtnDisplay(op) {
+    setisPrizeBtnDisplay(op)
+  }
+
   const value = {
     tickets,
     isShowingSidebar,
     setIsShowingSidebar,
     postTicket,
     selectedPrize,
-    setSelectedPize, // let try this again
+    setSelectedPize,
     winners,
-    handleAddWinner
+    handleAddWinner,
+    isPrizeBtnDisplay,
+    handlePrizesBtnDisplay
   }
   return (
     <LuckyContext.Provider value={value}>

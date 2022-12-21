@@ -1,8 +1,12 @@
+import { useEffect } from 'react'
 import { useLuckyContext } from '../Context'
 
 export default function AddPage() {
-    const { postTicket, tickets } = useLuckyContext()
+    const { postTicket, tickets, handlePrizesBtnDisplay } = useLuckyContext()
 
+    useEffect(() => {
+        handlePrizesBtnDisplay(false)
+    },[])
     function handleSubmit(e) {
         e.preventDefault()
         let inputTicketCount = 0
