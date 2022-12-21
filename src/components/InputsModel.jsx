@@ -41,8 +41,9 @@ export default function InputsModel({ winner, loading, onSubmitDraw, reload, isF
                     winner ?
                         winner.user.name ?
                             <>
-                                <h1 className='text-center text-white text-5xl font-bold my-3 underline underline-offset-8 text-rainbow-animation'>Congratulations!</h1>
-                                <h1 className='text-center text-white text-4xl font-bold'>{winner.user.name}</h1>
+                                <h1 className='text-center text-white text-5xl font-bold my-3 underline underline-offset-8 text-rainbow-animation blink'>Congratulations!</h1>
+                                <h1 className='text-center text-white text-5xl bg-secondary p-3 rounded-md drop-shadow-md font-bold'>{winner.user.name}</h1>
+                                <h1 className='text-center text-white text-4xl font-bold'>{winner.user.city}</h1>
                                 <h1 className='text-center text-white text-3xl font-bold pb-10'>{winner.user.state}</h1>
                                 <button className='btn mx-auto m-10' onClick={() => handleReload()}>Reload</button>
                             </>

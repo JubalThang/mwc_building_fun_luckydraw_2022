@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useLuckyContext } from '../Context'
 
@@ -16,9 +15,8 @@ export default function Navbar() {
         <li>|</li>
         <li><NavLink to='/list' className={({ isActive }) => isActive ? active_btn : 'nav-btn'}><h1>list</h1></NavLink></li>
         <li>|</li>
-        <li><button onClick={() => setIsShowingSidebar((pre) => !pre)}>{isShowingSidebar ? 'Hide' : 'Show'}</button></li>
+        <li><button onClick={() => setIsShowingSidebar((pre) => !pre)} className={`${isShowingSidebar ? active_btn : 'font-base'}`}>{isShowingSidebar ? 'hide' : 'prizes'}</button></li>
       </ul>
-
     </div>
   )
 }

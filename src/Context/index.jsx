@@ -9,7 +9,6 @@ export function useLuckyContext() {
 export default function LuckyProvider({ children }) {
   const [tickets, setTickets] = useState([])
   const [isShowingSidebar, setIsShowingSidebar] = useState(false)
-  // const [selectedPrizes, setSelectedPrizes] = useState([])
   const [selectedPrize, setSelectedPize] = useState('')
   const [winners, setWinners] = useState(null)
   // this selected ticket has to be override per select  
@@ -25,10 +24,6 @@ export default function LuckyProvider({ children }) {
     })
   }
 
-  function handleCurrentPrizeSelect(prize) {
-    setSelectedPize(prize)
-  }
-
   function handleAddWinner(winner) {
     const w = { ...winner, prize: selectedPrize }
     postWinnerToDB(w).then(winner_res =>  setWinners([...winners, winner_res]))
@@ -40,7 +35,6 @@ export default function LuckyProvider({ children }) {
     setIsShowingSidebar,
     postTicket,
     selectedPrize,
-    handleCurrentPrizeSelect, // this is to set the current selected prize
     setSelectedPize, // let try this again
     winners,
     handleAddWinner

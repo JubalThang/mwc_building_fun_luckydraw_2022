@@ -3,7 +3,6 @@ import WinnerCard from "./WinnerCard"
 
 export default function WinnerList() {
   const { winners } = useLuckyContext()
-  // console.log('winnerList: ', winners)
   return (
     <div className=" h-screen overflow-y-auto ">
       <div className="text-6xl space-y-5 pt-10 font-bold w-full text-center text-primary ">
@@ -12,8 +11,7 @@ export default function WinnerList() {
       </div>
       {/* <div className=" grid grid-cols-3 gap-4 "> */}
       <div className="w-full flex justify-center">
-        <div className="flex flex-wrap justify-center items-center w-[70%]">
-
+        <div className="flex flex-wrap justify-center items-center w-full">
           {
             winners ?
               winners.map(w =>
@@ -23,7 +21,6 @@ export default function WinnerList() {
               <h1> No Winner yet!</h1>
           }
         </div>
-
       </div>
     </div>
   )

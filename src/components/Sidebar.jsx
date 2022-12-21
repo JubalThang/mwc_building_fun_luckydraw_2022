@@ -45,7 +45,7 @@ export default function Sidebar() {
                     }
                 </div>
             </div>
-            <h1 className=' absolute p-5 text-white text-xs font-thin bottom-0 right-0 opacity-50'>Developed by Jubal Thang</h1>
+            <h1 className={`${ isShowingSidebar ? 'block' : 'hidden' } absolute p-5 text-white text-xs font-thin bottom-0 right-0 opacity-50`}>developed by Jubal Thang</h1>
         </div>
     )
 }

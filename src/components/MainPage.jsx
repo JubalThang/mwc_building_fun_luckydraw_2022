@@ -51,7 +51,6 @@ export const MainPage = () => {
         setLoading(false)
         setWinner('')
         setisFireworksShoot(false)
-        handleCurrentPrizeSelect('')
         fireworks.pause()
         fireworks.currentTime = 0
         cheering.pause()
