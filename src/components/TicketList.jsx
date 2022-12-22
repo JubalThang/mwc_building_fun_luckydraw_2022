@@ -12,17 +12,17 @@ export default function TicketList() {
     <div className=' max-h-full overflow-y-auto'>
       <div className=' mb-20'>
         <table className=' table-auto min-w-full'>
+          <thead>
           <tr className=' border-b sticky h-10 top-0 bg-blue-200'>
-
             <th>No.</th>
             <th>Ticket No.</th>
             <th>Name</th>
             {/* <th>Contact</th> */}
             <th>City</th>
             <th>State</th>
-
           </tr>
-
+          </thead>
+          <tbody>
           {
             tickets.map((ticket, index) => (
               <tr key={ticket.id} className=' even:bg-slate-100 even:bg-opacity-40 text-center hover:bg-slate-200'>
@@ -38,6 +38,7 @@ export default function TicketList() {
               </tr>
             ))
           }
+          </tbody>
         </table>
       </div>
 
