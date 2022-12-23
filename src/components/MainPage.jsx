@@ -26,7 +26,7 @@ export const MainPage = () => {
     function onSubmitDraw(e) {
         e.preventDefault()
         setLoading(true)
-        setTimeout(handleSearchingWinner, 1000)
+        setTimeout(handleSearchingWinner, 10000)
         heartBeat.play()
     }
 
