@@ -17,7 +17,7 @@ export default function WinnerList() {
       </div>
       {/* <div className=" grid grid-cols-3 gap-4 "> */}
       <div className="w-full flex justify-center">
-        <div className="flex flex-wrap justify-center items-center w-full">
+        <div className="flex flex-wrap justify-center items-center w-[70%]">
           {
             winners ?
               winners.map(w =>

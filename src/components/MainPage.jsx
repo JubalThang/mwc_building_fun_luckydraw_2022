@@ -17,7 +17,7 @@ export const MainPage = () => {
     const [cheering] = useState(new Audio(cheerAudio))
     const [noWinner] = useState(new Audio(noWinnerAudio))
     const [ticketToSearch, setTicketToSearch] = useState('')
-    const { selectedPrize, handlePrizesBtnDisplay, tickets, handleAddWinner } = useLuckyContext()
+    const { selectedPrize, handlePrizesBtnDisplay, tickets, winners, handleAddWinner, handleSelectedPrizeReset } = useLuckyContext()
 
     useEffect(() => {
         handlePrizesBtnDisplay(true)
@@ -26,7 +26,7 @@ export const MainPage = () => {
     function onSubmitDraw(e) {
         e.preventDefault()
         setLoading(true)
-        setTimeout(handleSearchingWinner, 1000)
+        setTimeout(handleSearchingWinner, 10000)
         heartBeat.play()
     }
 
@@ -35,10 +35,16 @@ export const MainPage = () => {
     }
 
     function handleSearchingWinner() {
+        if (winners.find(searchTheWinner)) {
+            setLoading(false)
+            heartBeat.pause()
+            alert('This is number is already a winner! Try again')
+            return
+        } 
+
         let prizeWinner = tickets.find(searchTheWinner)
         prizeWinner ? setWinner(prizeWinner) : setWinner({ "user": "" })
         setLoading(false)
-        // console.log("prize Winner form Main Page :", winner)
         heartBeat.pause()
         if (prizeWinner) {
             handleAddWinner(prizeWinner)
@@ -55,6 +61,7 @@ export const MainPage = () => {
         setLoading(false)
         setWinner('')
         setisFireworksShoot(false)
+        handleSelectedPrizeReset()
         fireworks.pause()
         fireworks.currentTime = 0
         cheering.pause()
@@ -62,6 +69,7 @@ export const MainPage = () => {
         noWinner.pause()
         noWinner.currentTime = 0
     }
+
     return (
         <div className='w-full flex-1 h-full relative flex'>
             <div className="p-5 w-full">

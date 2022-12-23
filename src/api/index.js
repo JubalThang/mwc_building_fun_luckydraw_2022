@@ -29,3 +29,11 @@ export async function postWinnerToDB(winner_from) {
    let object = createObject(winner_from)
    return await fetch(winners_url, object).then(res => res.json())
 }
+
+export async function delWinnerFromDB(winner_id) {
+    // console.log('the local url', `${tickets_url}/${winner_id}` )
+    return await fetch(`${tickets_url}/${winner_id}`, { 
+        method : 'DELETE',
+    })
+    .then(res => res.json())
+}

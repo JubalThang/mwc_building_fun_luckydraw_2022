@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import { getTheTicketsFromDB, getTheWinnersFromDB, postATicketToDB, postWinnerToDB } from "../api"
+import { delWinnerFromDB, getTheTicketsFromDB, getTheWinnersFromDB, postATicketToDB, postWinnerToDB } from "../api"
 
 const LuckyContext = createContext()
 
@@ -25,12 +25,18 @@ export default function LuckyProvider({ children }) {
   }
 
   function handleAddWinner(winner) {
+    // console.log(' winner_id to delete from db', winner.id)
+    delWinnerFromDB(winner.id)
     const w = { ...winner, prize: selectedPrize }
-    postWinnerToDB(w).then(winner_res =>  setWinners([...winners, winner_res]))
+    postWinnerToDB(w).then(winner_res => setWinners([...winners, winner_res]))
   }
 
   function handlePrizesBtnDisplay(op) {
     setisPrizeBtnDisplay(op)
+  }
+
+  function handleSelectedPrizeReset() {
+    setSelectedPize('')
   }
 
   const value = {
@@ -40,6 +46,7 @@ export default function LuckyProvider({ children }) {
     postTicket,
     selectedPrize,
     setSelectedPize,
+    handleSelectedPrizeReset,
     winners,
     handleAddWinner,
     isPrizeBtnDisplay,
