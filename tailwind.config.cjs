@@ -11,6 +11,9 @@ module.exports = {
         'secondary': '#7b7b7b'
         // 'primary' : '#0C6291',
         // 'secondary': '#6C8EAD' 
+      },
+      animation: {
+        'spin-slow': 'spin 360s linear infinite',
       }
     },
   },

@@ -97,9 +97,8 @@ export default function AddPage() {
         }
     }
 
-
     return (
-        <div className="w-full h-full overflow-y-auto">
+        <div className="w-full h-full overflow-y-auto bg-slate-200">
             <div className='mb-20'>
                 <h1 className="text-center text-4xl p-5 font-semibold ">Enter ticket info</h1>
                 <form className="w-96 mx-auto" onSubmit={(e) => handleSubmit(e)}>

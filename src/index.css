@@ -8,3 +8,8 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.rotate {
+  width: 100px;
+  animation: rotation 2s infinite linear;
+}
