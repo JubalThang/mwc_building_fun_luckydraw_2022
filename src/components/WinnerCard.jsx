@@ -7,8 +7,8 @@ export default function WinnerCard({ winner }) {
     return (
         <div className="flex justify-center mt-10 ml-9">
             <div className="rounded-lg shadow-lg bg-white w-max">
-                <div className="bg-primary rounded-t-lg">
-                    <h5 className="text-gray-900text-x/l font-medium text-2xl p-7 text-center text-white ">{winner.prize}</h5>
+                <div className=" bg-black/10 rounded-t-lg">
+                    <h5 className=" text-3xl p-7 text-center text-primary font-bold ">{winner.prize}</h5>
                 </div>
                 <table className="w-full">
                     <tr>

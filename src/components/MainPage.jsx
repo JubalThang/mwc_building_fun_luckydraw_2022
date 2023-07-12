@@ -76,11 +76,11 @@ export const MainPage = () => {
                 <div className="flex items-center justify-center">
                     <img src={churchlogo} alt="logo" className='w-[600px] h-auto drop-shadow-lg opacity-0' />
                     <img src="../src/assets/images/RotatePng.png" className='absolute w-[820px] animate-spin-slow mt'/>
-                    <img src="../src/assets/images/downArrow.png" className='absolute w-[100px] -mt-[250px] animate-bounce'/>
+                    <img src="../src/assets/images/downArrow.png" className='absolute w-[100px] -mt-[250px] animate-bounce' hidden={winner || loading ? true : false}/>
                     {/* <h1 className='absolute text-[60px] font-bold -mt-[300px] ml-6 drop-shadow-md bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent' onClick={() => console.log("click")}>2023 UY Set Apart Blessed Draw</h1> */}
                 </div>
                 {
-                    selectedPrize && <div className=' mt-10 max-w-max mx-auto border-2 rounded-md border-primary'> <h1 className='text-center text-primary p-3 text-4xl font-semibold'>Draw a Winner for <span className='text-5xl text-amber-700'> {selectedPrize}!</span></h1> </div>
+                    selectedPrize && <div className='absolute top-0 max-w-max'> <h1 className='text-center text-primary p-5 bg-white/70 mt-10 text-4xl font-semibold uppercase'>Draw a Winner for <br /> <span > <h1 className='text-5xl py-5 text-accent'> {selectedPrize}! </h1> </span></h1> </div>
                 }
             </div>
             <InputsModel isFireworksShoot={isFireworksShoot} winner={winner} loading={loading} onSubmitDraw={onSubmitDraw} reload={reload} setTicketToSearch={setTicketToSearch} />

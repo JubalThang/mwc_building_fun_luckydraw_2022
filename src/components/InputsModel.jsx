@@ -36,7 +36,7 @@ export default function InputsModel({ winner, loading, onSubmitDraw, reload, isF
 
     return (
         <div className='absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center'>
-            <div className={`${isShowingSidebar ? 'w-2/5' : 'w-1/4'} rounded-xl flex flex-col space-y-5 justify-evenly bg-primary p-5 z-20 transition-all duration-500 `}>
+            <div className={`${isShowingSidebar ? 'w-2/5' : 'w-1/4'} rounded-xl flex flex-col space-y-5 justify-evenly p-5 z-20 transition-all duration-500 `}>
                 {
                     winner ?
                         winner.user.name ?
@@ -49,8 +49,8 @@ export default function InputsModel({ winner, loading, onSubmitDraw, reload, isF
                             </>
                             :
                             <>
-                                <h1 className='text-center text-white text-5xl font-bold my-3 underline underline-offset-8'>Oops!</h1>
-                                <h1 className='text-center text-white text-4xl font-bold pb-10'>လက်မှတ်မရောင်းရသေးပါ</h1>
+                                <h1 className='text-center text-accent text-5xl font-bold my-3 underline underline-offset-8'>Oops!</h1>
+                                <h1 className='text-center text-accent text-4xl font-bold pb-10'>လက်မှတ်မရောင်းရသေးပါ</h1>
                                 <button className='btn mx-auto m-10' onClick={() => handleReload()}>Reload</button>
                             </>
                         :
@@ -64,11 +64,11 @@ export default function InputsModel({ winner, loading, onSubmitDraw, reload, isF
                                         <input type="number" onInput={(e) => e.target.value = e.target.value.slice(0, 1)} onFocus={() => setIsShowingSidebar(false)} className='input-field' name='fourth' onChange={(e) => setFourth(e.target.value)} />
                                     </div>
                                     <div className='py-5 text-center'>
-                                        <input type='submit' className={`btn ${btnDisable && 'bg-secondary'}`} value='draw' disabled={btnDisable} />
+                                        <input type='submit' className={`btn ${btnDisable && 'bg-secondary/30 text-gray-400'}`} value='draw' disabled={btnDisable} />
                                     </div>
                                 </form>
                             </>
-                            : <><h1 className='text-center text-white text-3xl blink'>Searching...</h1><div className="lds-heart mx-auto"><div></div></div></>
+                            : <><h1 className='text-center text-white text-6xl blink bg-red-500 w-full py-3 rounded-lg'>Searching...</h1><div className="lds-heart mx-auto "><div></div></div></>
                 }
             </div>
             {

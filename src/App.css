@@ -20,11 +20,11 @@
   }
 
   .input-field {
-    @apply w-4/5 p-3 bg-white border-2 border-gray-400 rounded-md outline-none font-bold text-6xl text-center text-orange-900
+    @apply w-4/5 p-3 bg-transparent border-4 border-accent rounded-md outline-none font-bold text-6xl text-center text-accent
   }
 
   .btn {
-    @apply px-4 py-2 bg-white font-bold text-2xl uppercase text-primary max-w-max rounded-md cursor-pointer
+    @apply px-4 py-2 bg-white font-bold text-2xl uppercase text-accent max-w-max rounded-md cursor-pointer
   }
 
   .prize-div {
@@ -82,8 +82,8 @@
 .lds-heart {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   transform: rotate(45deg);
   transform-origin: 40px 40px;
 }
